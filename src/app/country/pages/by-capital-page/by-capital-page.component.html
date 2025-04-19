@@ -1,30 +1,8 @@
-<!--componente country-search-input-->
-<section class="flex flex-row gap-2 mt-2">
-  <input
-    type="text"
-    class="input input-bordered mr-2 w-56"
-    placeholder="Buscar por Capital"
-    autofocus
-    #txtSearch
-    (keyup.enter)="onSearch(txtSearch.value)"
-  />
-  <button class="btn btn-primary" (click)="onSearch(txtSearch.value)">
-    Buscar
-  </button>
-</section>
+<!-- componente country-search-input -->
+<app-country-search-input
+  placeholder="Buscar por capital"
+  (onSearch)="searchByCapital($event)"
+></app-country-search-input>
 
-<!--componente country-list-->
-<section class="mt-5">
-  <table class="table table-md w-full mt-2">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Icono</th>
-        <th>Bandera</th>
-        <th>Capital</th>
-        <th>Población</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</section>
+<!-- componente country-list -->
+<app-country-list [countries]="countries"></app-country-list>
