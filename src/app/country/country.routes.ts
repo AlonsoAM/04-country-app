@@ -14,6 +14,22 @@ const countryRoutes: Routes = [
           ),
       },
       {
+        // Nueva ruta para by-pais
+        path: 'by-country',
+        loadComponent: () =>
+          import('./pages/by-pais-page/by-pais-page.component').then(
+            (m) => m.ByPaisPageComponent
+          ),
+      },
+      {
+        // Nueva ruta para by-region
+        path: 'by-region',
+        loadComponent: () =>
+          import('./pages/by-region-page/by-region-page.component').then(
+            (m) => m.ByRegionPageComponent
+          ),
+      },
+      {
         path: '**',
         redirectTo: 'by-capital',
       },

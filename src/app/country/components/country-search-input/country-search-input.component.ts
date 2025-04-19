@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core'; // Importar 'input'
+import { Component, ElementRef, input, output, ViewChild } from '@angular/core'; // Importar ElementRef y ViewChild
 
 @Component({
   selector: 'app-country-search-input',
@@ -14,8 +14,16 @@ export class CountrySearchInputComponent {
   // Usar la función output() en lugar del decorador @Output()
   public onSearch = output<string>();
 
-  // Método para emitir el valor de búsqueda (sin cambios en la lógica)
+  // Obtener referencia al input usando ViewChild
+  @ViewChild('txtSearch')
+  public searchInput!: ElementRef<HTMLInputElement>;
+
+  // Método para emitir el valor de búsqueda
   search(value: string): void {
     this.onSearch.emit(value);
+    // Limpiar el input
+    this.searchInput.nativeElement.value = '';
+    // Devolver el foco al input
+    this.searchInput.nativeElement.focus();
   }
 }
