@@ -14,11 +14,19 @@ const countryRoutes: Routes = [
           ),
       },
       {
-        // Nueva ruta para by-pais
+        // Nueva ruta para by-pais (original)
         path: 'by-country',
         loadComponent: () =>
           import('./pages/by-pais-page/by-pais-page.component').then(
             (m) => m.ByPaisPageComponent
+          ),
+      },
+      {
+        // Nueva ruta para la página de país por código
+        path: 'by-country/:code', // Cambiado de :id a :code
+        loadComponent: () =>
+          import('./pages/country-page/country-page.component').then(
+            (m) => m.CountryPageComponent
           ),
       },
       {
