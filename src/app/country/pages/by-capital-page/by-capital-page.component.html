@@ -5,4 +5,10 @@
 ></app-country-search-input>
 
 <!-- componente country-list -->
+@if (isError()) {
+<div class="alert alert-danger mt-5">
+  <strong>Error: </strong> {{ isError() }}
+</div>
+} @else {
 <app-country-list [countries]="countries()"></app-country-list>
+}

@@ -27,17 +27,16 @@ export class ByCapitalPageComponent {
     this.isLoading.set(true); // Activar el estado de carga
     this.isError.set(null); // Reiniciar el estado de error
 
-    this.countryService.searchByCapital(term).subscribe(
-      (countries) => {
+    this.countryService.searchByCapital(term).subscribe({
+      next: (countries) => {
+        this.countries.set(countries); // Actualizar la lista de países
         this.isLoading.set(false); // Desactivar el estado de carga
-        this.countries.set(countries); // Almacenar los países
-        console.log('Respuesta del servicio:', countries);
       },
-      (error) => {
-        this.isLoading.set(false);
-        this.isError.set('Error al buscar países');
-        console.error('Error del servicio:', error);
-      }
-    );
+      error: (error) => {
+        this.isError.set(error); // Manejar el error
+        this.isLoading.set(false); // Desactivar el estado de carga
+        this.countries.set([]); // Limpiar la lista de países
+      },
+    });
   }
 }
