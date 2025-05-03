@@ -6,7 +6,7 @@ export class CountryMapper {
   static fromRestCountryToCountry(restCountry: RESTCountry): Country {
     return {
       cca2: restCountry.cca2,
-      name: restCountry.name.common,
+      name: restCountry.translations['spa'].common ?? 'No Spanish Name',
       capital: restCountry.capital ? restCountry.capital[0] : 'N/A',
       population: restCountry.population,
       flag: restCountry.flag,
