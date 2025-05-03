@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core'; // Importar 'input' y quitar 'Input'
 import { CommonModule } from '@angular/common'; // Importar CommonModule para *ngFor
+import { RESTCountry } from '../../interfaces/rest-countries.interface';
 
 @Component({
   selector: 'app-country-list',
@@ -10,5 +11,5 @@ import { CommonModule } from '@angular/common'; // Importar CommonModule para *n
 })
 export class CountryListComponent {
   // Usar la función input() en lugar del decorador @Input()
-  public countries = input<any[]>([]); // Añadir Input para recibir países (usar interfaz si existe)
+  public countries = input.required<RESTCountry[]>(); // Añadir Input para recibir países (usar interfaz si existe)
 }
