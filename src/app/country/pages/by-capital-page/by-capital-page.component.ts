@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CountrySearchInputComponent } from '../../components/country-search-input/country-search-input.component'; // Importar
 import { CountryListComponent } from '../../components/country-list/country-list.component'; // Importar
 import { CountryService } from '../../services/country.service';
-import { RESTCountry } from '../../interfaces/rest-countries.interface';
+import { Country } from '../../interfaces/country.interface';
 
 @Component({
   selector: 'app-by-capital-page',
@@ -18,7 +18,7 @@ export class ByCapitalPageComponent {
 
   isLoading = signal(false); // Variable para manejar el estado de carga
   isError = signal<string | null>(null); // Variable para manejar el estado de error
-  countries = signal<RESTCountry[]>([]); // Variable para almacenar los países
+  countries = signal<Country[]>([]); // Variable para almacenar los países
 
   // Renombrar y adaptar el método para manejar la búsqueda
   searchByCapital(term: string): void {
