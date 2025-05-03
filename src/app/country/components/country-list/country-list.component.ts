@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core'; // Importar 'input' y quitar 'Input'
-import { CommonModule } from '@angular/common'; // Importar CommonModule para *ngFor
+import { CommonModule, DecimalPipe } from '@angular/common'; // Importar CommonModule para *ngFor
 import { RESTCountry } from '../../interfaces/rest-countries.interface';
 import { Country } from '../../interfaces/country.interface';
 
